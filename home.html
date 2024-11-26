@@ -211,7 +211,7 @@
     </div>
 
     <!-- Search Bar -->
-    <input type="text" class="search-bar" id="searchBar" placeholder="Search for mods..." oninput="searchMods()">
+    <input type="text" class="search-bar" id="searchBar" placeholder="Search for mods...">
 
     <!-- Main Content Container -->
     <div class="content-container" id="contentContainer">
@@ -280,19 +280,19 @@
     </a>
 
     <script>
-        function searchMods() {
-            var input = document.getElementById("searchBar").value.toLowerCase(); // Get the search input
-            var modItems = document.querySelectorAll(".mod-item"); // Get all mod items
+        document.getElementById('searchBar').addEventListener('input', function() {
+            var input = this.value.toLowerCase(); // Get the search input
+            var modItems = document.querySelectorAll('.mod-item'); // Get all mod items
 
             modItems.forEach(function(item) {
-                var modName = item.getAttribute("data-mod-name").toLowerCase(); // Get the mod name (case-insensitive)
+                var modName = item.getAttribute('data-mod-name').toLowerCase(); // Get the mod name (case-insensitive)
                 if (modName.includes(input)) {
-                    item.classList.remove("hidden"); // Show the item if it matches the search
+                    item.classList.remove('hidden'); // Show the item if it matches the search
                 } else {
-                    item.classList.add("hidden"); // Hide the item if it doen't match
+                    item.classList.add('hidden'); // Hide the item if it doesn't match
                 }
             });
-        }
+        });
     </script>
 
 </body>

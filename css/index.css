@@ -193,7 +193,7 @@
     justify-content: center;
     align-items: center;
     width: 800px;
-    height: 70vh;  /* Sets the iframe container to take up 70% of the viewport height */
+    height: 500px;  /* Sets the iframe container to take up 70% of the viewport height */
     margin: 20px 0;
 }
 

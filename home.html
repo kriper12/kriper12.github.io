@@ -105,8 +105,14 @@
             background-color: #1e1e1e;
             border-radius: 10px;
             overflow: hidden;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.5s ease-in-out; /* Added opacity transition */
+            opacity: 1; /* Fully visible by default */
+            visibility: visible; /* Ensures visibility is visible initially */
+        }
+
+        .box.hidden {
+            opacity: 0; /* Fades out */
+            visibility: hidden; /* Makes the box invisible */
         }
 
         .box:hover {
@@ -205,13 +211,13 @@
     </div>
 
     <!-- Search Bar -->
-    <input type="text" class="search-bar" placeholder="Search for mods...">
+    <input type="text" class="search-bar" id="searchBar" placeholder="Search for mods..." oninput="searchMods()">
 
     <!-- Main Content Container -->
-    <div class="content-container">
+    <div class="content-container" id="contentContainer">
 
         <!-- Mod Box 1 -->
-        <a href="/fnf-og" class="box mod-item">
+        <a href="/fnf-og" class="box mod-item" data-mod-name="Friday Night Funkin'">
             <img src="https://kbh.games/img/sdvere3.jpg" alt="FNF Mod Image">
             <div class="content">
                 <h3>Friday Night Funkin'</h3>
@@ -220,7 +226,7 @@
         </a>
 
         <!-- Mod Box 2 -->
-        <a href="#" class="box mod-item">
+        <a href="#" class="box mod-item" data-mod-name="Mod Name 2">
             <img src="https://placekitten.com/200/300" alt="FNF Mod Image">
             <div class="content">
                 <h3>Mod Name 2</h3>
@@ -229,7 +235,7 @@
         </a>
 
         <!-- Mod Box 3 -->
-        <a href="#" class="box mod-item">
+        <a href="#" class="box mod-item" data-mod-name="Mod Name 3">
             <img src="https://placekitten.com/200/300" alt="FNF Mod Image">
             <div class="content">
                 <h3>Mod Name 3</h3>
@@ -238,7 +244,7 @@
         </a>
 
         <!-- Mod Box 4 -->
-        <a href="#" class="box mod-item">
+        <a href="#" class="box mod-item" data-mod-name="Mod Name 4">
             <img src="https://placekitten.com/200/300" alt="FNF Mod Image">
             <div class="content">
                 <h3>Mod Name 4</h3>
@@ -247,7 +253,7 @@
         </a>
 
         <!-- Mod Box 5 -->
-        <a href="#" class="box mod-item">
+        <a href="#" class="box mod-item" data-mod-name="Mod Name 5">
             <img src="https://placekitten.com/200/300" alt="FNF Mod Image">
             <div class="content">
                 <h3>Mod Name 5</h3>
@@ -256,7 +262,7 @@
         </a>
 
         <!-- Mod Box 6 -->
-        <a href="#" class="box mod-item">
+        <a href="#" class="box mod-item" data-mod-name="Mod Name 6">
             <img src="https://placekitten.com/200/300" alt="FNF Mod Image">
             <div class="content">
                 <h3>Mod Name 6</h3>
@@ -266,14 +272,28 @@
 
     </div>
 
-    <!-- "Show More Mods" Button -->
-
     <!-- Discord Icon Button -->
     <a href="https://discord.com/" target="_blank">
         <div class="discord-btn">
            <i class="fa-brands fa-discord"></i>
         </div>
     </a>
+
+    <script>
+        function searchMods() {
+            var input = document.getElementById("searchBar").value.toLowerCase(); // Get the search input
+            var modItems = document.querySelectorAll(".mod-item"); // Get all mod items
+
+            modItems.forEach(function(item) {
+                var modName = item.getAttribute("data-mod-name").toLowerCase(); // Get the mod name (case-insensitive)
+                if (modName.includes(input)) {
+                    item.classList.remove("hidden"); // Show the item if it matches the search
+                } else {
+                    item.classList.add("hidden"); // Hide the item if it doesn't match
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kriper's FNF Mod Library</title>
+
+    <!-- Link to Google Font for a cooler header font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0a0a; /* Black background */
+            color: #f4f4f4; /* Light gray text */
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-family: 'Press Start 2P', cursive; /* Retro gaming font */
+            color: #ffa500; /* Orange color for the title */
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            padding-top: 40px; /* Added padding to the top of the header */
+        }
+
+        h1 a {
+            text-decoration: none;
+            color: #ffa500;
+            transition: color 0.3s;
+        }
+
+        h1 a:hover {
+            color: #ff6f00; /* Darker orange on hover */
+        }
+
+        /* Search Bar */
+        .search-container {
+            margin-top: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .search-bar {
+            padding: 10px;
+            font-size: 1.2em;
+            width: 300px;
+            border-radius: 5px;
+            border: 2px solid #ff6f00;
+            background-color: #1e1e1e;
+            color: #fff;
+        }
+
+        .search-bar:focus {
+            outline: none;
+            border-color: #ffa500;
+        }
+
+        /* Main container for the content */
+        .content-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin-top: 40px;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .box {
+            position: relative;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .box:hover {
+            transform: scale(1.05); /* Slight zoom effect */
+            box-shadow: 0 6px 15px rgba(255, 105, 0, 0.6); /* Orange shadow on hover */
+        }
+
+        .box img {
+            width: 100%;
+            height: auto;
+            border-bottom: 2px solid #ff6f00; /* Orange border below image */
+        }
+
+        .box .content {
+            padding: 15px;
+        }
+
+        .box .content h3 {
+            color: #ffa500; /* Title in orange */
+            font-size: 1.6em;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .box .content h3:hover {
+            color: #ff6f00; /* Darker orange on hover */
+        }
+
+        .box .content p {
+            color: #b0b0b0;
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+
+        .box .content a {
+            color: #ff6f00;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .box .content a:hover {
+            color: #ff4500; /* Brighter orange on hover */
+        }
+
+        .show-more-btn {
+            background-color: #ff6f00;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 40px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .show-more-btn:hover {
+            background-color: #ffa500; /* Lighter orange on hover */
+        }
+
+        /* Hide additional mod boxes by default */
+        .more-mods {
+            display: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1><a href="/">Kriper's FNF Mod Library</a></h1>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="search-bar" class="search-bar" placeholder="Search for a mod..." onkeyup="searchMods()">
+    </div>
+
+    <!-- Content Container -->
+    <div class="content-container" id="mod-list">
+        <!-- Mod Box 1 -->
+        <div class="box mod-item">
+            <img src="https://placekitten.com/400/300" alt="FNF Mod Image">
+            <div class="content">
+                <h3>Friday Night Funkin'</h3>
+                <p>Join the fun rhythm battle with funky beats and challenges!</p>
+                <a href="#">View Mod</a>
+            </div>
+        </div>
+
+        <!-- Mod Box 2 -->
+        <div class="box mod-item">
+            <img src="https://placekitten.com/400/300" alt="FNF Mod Image">
+            <div class="content">
+                <h3>Mod Name 2</h3>
+                <p>Explore new characters and stages in this epic mod!</p>
+                <a href="#">View Mod</a>
+            </div>
+        </div>
+
+        <!-- Mod Box 3 -->
+        <div class="box mod-item">
+            <img src="https://placekitten.com/400/300" alt="FNF Mod Image">
+            <div class="content">
+                <h3>Mod Name 3</h3>
+                <p>Get ready for intense rap battles in this challenging mod!</p>
+                <a href="#">View Mod</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden additional mod boxes (initially not shown) -->
+    <div class="content-container more-mods" id="more-mods">
+        <!-- Mod Box 4 -->
+        <div class="box mod-item">
+            <img src="https://placekitten.com/400/300" alt="FNF Mod Image">
+            <div class="content">
+                <h3>Mod Name 4</h3>
+                <p>Prepare for a fresh adventure with this mod!</p>
+                <a href="#">View Mod</a>
+            </div>
+        </div>
+
+        <!-- Mod Box 5 -->
+        <div class="box mod-item">
+            <img src="https://placekitten.com/400/300" alt="FNF Mod Image">
+            <div class="content">
+                <h3>Mod Name 5</h3>
+                <p>Challenge yourself with new music tracks and characters!</p>
+                <a href="#">View Mod</a>
+            </div>
+        </div>
+
+        <!-- Mod Box 6 -->
+        <div class="box mod-item">
+            <img src="https://placekitten.com/400/300" alt="FNF Mod Image">
+            <div class="content">
+                <h3>Mod Name 6</h3>
+                <p>Enjoy epic battles and great tunes with this mod!</p>
+                <a href="#">View Mod</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- "Show More Mods" Button (now redirects to /home) -->
+    <a href="/home">
+        <button class="show-more-btn">Show More Mods</button>
+    </a>
+
+    <script>
+        // Filter the mod boxes based on search input
+        function searchMods() {
+            const searchValue = document.getElementById('search-bar').value.toLowerCase();
+            const modItems = document.querySelectorAll('.mod-item');
+
+            modItems.forEach(item => {
+                const modName = item.querySelector('h3').textContent.toLowerCase();
+                if (modName.includes(searchValue)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

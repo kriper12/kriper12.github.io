@@ -279,21 +279,41 @@
         </div>
     </a>
 
-    <script>
-        document.getElementById('searchBar').addEventListener('input', function() {
-            var input = this.value.toLowerCase(); // Get the search input
-            var modItems = document.querySelectorAll('.mod-item'); // Get all mod items
-
-            modItems.forEach(function(item) {
-                var modName = item.getAttribute('data-mod-name').toLowerCase(); // Get the mod name (case-insensitive)
-                if (modName.includes(input)) {
-                    item.classList.remove('hidden'); // Show the item if it matches the search
-                } else {
-                    item.classList.add('hidden'); // Hide the item if it doesn't match
-                }
-            });
+ <script>
+    document.getElementById('searchBar').addEventListener('input', function() {
+        var input = this.value.toLowerCase(); // Get the search input
+        var modItems = Array.from(document.querySelectorAll('.mod-item')); // Get all mod items and convert to an array
+        var contentContainer = document.getElementById('contentContainer'); // Get the content container
+        
+        // First, hide all items
+        modItems.forEach(function(item) {
+            var modName = item.getAttribute('data-mod-name').toLowerCase(); // Get the mod name (case-insensitive)
+            if (modName.includes(input)) {
+                item.classList.remove('hidden'); // Show the item if it matches the search
+            } else {
+                item.classList.add('hidden'); // Hide the item if it doesn't match
+            }
         });
-    </script>
+
+        // Now, reorder items by putting the visible ones at the top
+        modItems.sort(function(a, b) {
+            // Compare if each item is hidden or not (visible first)
+            if (a.classList.contains('hidden') && !b.classList.contains('hidden')) {
+                return 1; // Move hidden items down
+            } else if (!a.classList.contains('hidden') && b.classList.contains('hidden')) {
+                return -1; // Move visible items up
+            } else {
+                return 0; // No change in order if both are either visible or hidden
+            }
+        });
+
+        // Re-attach sorted items to the content container
+        modItems.forEach(function(item) {
+            contentContainer.appendChild(item); // Re-append in new order
+        });
+    });
+</script>
+
 
 </body>
 </html>

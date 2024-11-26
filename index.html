@@ -164,17 +164,18 @@
             right: 20px;
             background-color: #5865F2;
             color: white;
-            padding: 15px;
+            padding: 10px; /* Smaller padding for a smaller button */
             border-radius: 50%;
-            font-size: 2em;
+            font-size: 1.5em; /* Reduced font size */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: background-color 0.3s, transform 0.3s ease;
         }
 
-        /* Spin effect on hover */
+        /* Discord button hover effect */
         .discord-btn:hover {
-            transform: rotate(360deg);
+            background-color: #ffa500; /* Change background to orange on hover */
+            transform: rotate(360deg); /* Spin effect on hover */
         }
 
         .discord-btn i {
@@ -225,33 +226,6 @@
             </div>
         </a>
 
-        <!-- Mod Box 4 -->
-        <a href="#" class="box mod-item">
-            <img src="https://placekitten.com/200/300" alt="FNF Mod Image">
-            <div class="content">
-                <h3>Mod Name 4</h3>
-                <p>Prepare for a fresh adventure with this mod!</p>
-            </div>
-        </a>
-
-        <!-- Mod Box 5 -->
-        <a href="#" class="box mod-item">
-            <img src="https://placekitten.com/200/300" alt="FNF Mod Image">
-            <div class="content">
-                <h3>Mod Name 5</h3>
-                <p>Challenge yourself with new music tracks and characters!</p>
-            </div>
-        </a>
-
-        <!-- Mod Box 6 -->
-        <a href="#" class="box mod-item">
-            <img src="https://placekitten.com/200/300" alt="FNF Mod Image">
-            <div class="content">
-                <h3>Mod Name 6</h3>
-                <p>Enjoy epic battles and great tunes with this mod!</p>
-            </div>
-        </a>
-
     </div>
 
     <!-- "Show More Mods" Button -->
@@ -266,7 +240,5 @@
         </div>
     </a>
 
-    <!-- Footer (removed as per your previous request) -->
-    
 </body>
 </html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kriper's FNF Mod Library</title>
+
+    <!-- Link to Google Font for a cooler header font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0a0a; /* Black background */
+            color: #f4f4f4; /* Light gray text */
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-family: 'Press Start 2P', cursive; /* Retro gaming font */
+            color: #ffa500; /* Orange color for the title */
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            padding-top: 40px; /* Added padding to the top of the header */
+        }
+
+        h1 a {
+            text-decoration: none;
+            color: #ffa500;
+            transition: color 0.3s;
+        }
+
+        h1 a:hover {
+            color: #ff6f00; /* Darker orange on hover */
+        }
+
+        /* Main container for the content */
+        .content-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin-top: 40px;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .box {
+            position: relative;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .box:hover {
+            transform: scale(1.05); /* Slight zoom effect */
+            box-shadow: 0 6px 15px rgba(255, 105, 0, 0.6); /* Orange shadow on hover */
+        }
+
+        .box img {
+            width: 100%;
+            height: auto;
+            border-bottom: 2px solid #ff6f00; /* Orange border below image */
+        }
+
+        .box .content {
+            padding: 15px;
+        }
+
+        .box .content h3 {
+            color: #ffa500; /* Title in orange */
+            font-size: 1.6em;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .box .content h3:hover {
+            color: #ff6f00; /* Darker orange on hover */
+        }
+
+        .box .content p {
+            color: #b0b0b0;
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+
+        /* Remove blue color and underline from links */
+        a {
+            text-decoration: none; /* Remove underline */
+            color: inherit; /* Inherit the color from the parent element (e.g., the orange text color) */
+        }
+
+        .show-more-btn {
+            background-color: #ff6f00;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 40px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .show-more-btn:hover {
+            background-color: #ffa500; /* Lighter orange on hover */
+        }
+
+        /* Hide additional mod boxes by default */
+        .more-mods {
+            display: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-container"></div>
+
+    <script>
+        // This script will dynamically generate the entire page content
+
+        // Data for mods
+        const mods = [
+            { name: "Friday Night Funkin'", description: "Join the fun rhythm battle with funky beats and challenges!", imageUrl: "https://placekitten.com/400/300", link: "#" },
+            { name: "Mod Name 2", description: "Explore new characters and stages in this epic mod!", imageUrl: "https://placekitten.com/400/300", link: "#" },
+            { name: "Mod Name 3", description: "Get ready for intense rap battles in this challenging mod!", imageUrl: "https://placekitten.com/400/300", link: "#" },
+            { name: "Mod Name 4", description: "Prepare for a fresh adventure with this mod!", imageUrl: "https://placekitten.com/400/300", link: "#" },
+            { name: "Mod Name 5", description: "Challenge yourself with new music tracks and characters!", imageUrl: "https://placekitten.com/400/300", link: "#" },
+            { name: "Mod Name 6", description: "Enjoy epic battles and great tunes with this mod!", imageUrl: "https://placekitten.com/400/300", link: "#" }
+        ];
+
+        // Create the main container
+        const mainContainer = document.getElementById("main-container");
+
+        // Create the header
+        const header = document.createElement("header");
+        const title = document.createElement("h1");
+        const titleLink = document.createElement("a");
+        titleLink.href = "/";
+        titleLink.textContent = "Kriper's FNF Mod Library";
+        title.appendChild(titleLink);
+        header.appendChild(title);
+        mainContainer.appendChild(header);
+
+        // Create the content container
+        const contentContainer = document.createElement("div");
+        contentContainer.classList.add("content-container");
+
+        // Function to generate mod boxes
+        function createModBox(mod) {
+            const modBoxLink = document.createElement("a");
+            modBoxLink.href = mod.link;
+            modBoxLink.classList.add("box", "mod-item");
+
+            const modImage = document.createElement("img");
+            modImage.src = mod.imageUrl;
+            modImage.alt = `${mod.name} Mod Image`;
+
+            const modContent = document.createElement("div");
+            modContent.classList.add("content");
+
+            const modName = document.createElement("h3");
+            modName.textContent = mod.name;
+
+            const modDescription = document.createElement("p");
+            modDescription.textContent = mod.description;
+
+            modContent.appendChild(modName);
+            modContent.appendChild(modDescription);
+            modBoxLink.appendChild(modImage);
+            modBoxLink.appendChild(modContent);
+
+            return modBoxLink;
+        }
+
+        // Add mod boxes to the content container
+        mods.forEach(mod => {
+            const modBox = createModBox(mod);
+            contentContainer.appendChild(modBox);
+        });
+
+        mainContainer.appendChild(contentContainer);
+
+        // Create the "Show More Mods" button
+        const showMoreButton = document.createElement("a");
+        showMoreButton.href = "/home";
+        const button = document.createElement("button");
+        button.classList.add("show-more-btn");
+        button.textContent = "Show More Mods";
+        showMoreButton.appendChild(button);
+
+        mainContainer.appendChild(showMoreButton);
+
+    </script>
+</body>
+</html>

@@ -46,28 +46,6 @@
             color: #ff6f00; /* Darker orange on hover */
         }
 
-        /* Search Bar */
-        .search-container {
-            margin-top: 20px;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .search-bar {
-            padding: 10px;
-            font-size: 1.2em;
-            width: 300px;
-            border-radius: 5px;
-            border: 2px solid #ff6f00;
-            background-color: #1e1e1e;
-            color: #fff;
-        }
-
-        .search-bar:focus {
-            outline: none;
-            border-color: #ffa500;
-        }
-
         /* Main container for the content */
         .content-container {
             display: grid;
@@ -165,98 +143,70 @@
         <h1><a href="/">Kriper's FNF Mod Library</a></h1>
     </header>
 
-    <!-- Search Bar -->
-    <div class="search-container">
-        <input type="text" id="search-bar" class="search-bar" placeholder="Search for a mod..." onkeyup="searchMods()">
-    </div>
-
     <!-- Content Container -->
     <div class="content-container" id="mod-list">
         <!-- Mod Box 1 -->
-        <div class="box mod-item">
+        <a href="#" class="box mod-item">
             <img src="https://placekitten.com/400/300" alt="FNF Mod Image">
             <div class="content">
                 <h3>Friday Night Funkin'</h3>
                 <p>Join the fun rhythm battle with funky beats and challenges!</p>
-                <a href="#">View Mod</a>
             </div>
-        </div>
+        </a>
 
         <!-- Mod Box 2 -->
-        <div class="box mod-item">
+        <a href="#" class="box mod-item">
             <img src="https://placekitten.com/400/300" alt="FNF Mod Image">
             <div class="content">
                 <h3>Mod Name 2</h3>
                 <p>Explore new characters and stages in this epic mod!</p>
-                <a href="#">View Mod</a>
             </div>
-        </div>
+        </a>
 
         <!-- Mod Box 3 -->
-        <div class="box mod-item">
+        <a href="#" class="box mod-item">
             <img src="https://placekitten.com/400/300" alt="FNF Mod Image">
             <div class="content">
                 <h3>Mod Name 3</h3>
                 <p>Get ready for intense rap battles in this challenging mod!</p>
-                <a href="#">View Mod</a>
             </div>
-        </div>
+        </a>
     </div>
 
     <!-- Hidden additional mod boxes (initially not shown) -->
     <div class="content-container more-mods" id="more-mods">
         <!-- Mod Box 4 -->
-        <div class="box mod-item">
+        <a href="#" class="box mod-item">
             <img src="https://placekitten.com/400/300" alt="FNF Mod Image">
             <div class="content">
                 <h3>Mod Name 4</h3>
                 <p>Prepare for a fresh adventure with this mod!</p>
-                <a href="#">View Mod</a>
             </div>
-        </div>
+        </a>
 
         <!-- Mod Box 5 -->
-        <div class="box mod-item">
+        <a href="#" class="box mod-item">
             <img src="https://placekitten.com/400/300" alt="FNF Mod Image">
             <div class="content">
                 <h3>Mod Name 5</h3>
                 <p>Challenge yourself with new music tracks and characters!</p>
-                <a href="#">View Mod</a>
             </div>
-        </div>
+        </a>
 
         <!-- Mod Box 6 -->
-        <div class="box mod-item">
+        <a href="#" class="box mod-item">
             <img src="https://placekitten.com/400/300" alt="FNF Mod Image">
             <div class="content">
                 <h3>Mod Name 6</h3>
                 <p>Enjoy epic battles and great tunes with this mod!</p>
-                <a href="#">View Mod</a>
             </div>
-        </div>
+        </a>
     </div>
 
     <!-- "Show More Mods" Button (now redirects to /home) -->
     <a href="/home">
         <button class="show-more-btn">Show More Mods</button>
     </a>
-
-    <script>
-        // Filter the mod boxes based on search input
-        function searchMods() {
-            const searchValue = document.getElementById('search-bar').value.toLowerCase();
-            const modItems = document.querySelectorAll('.mod-item');
-
-            modItems.forEach(item => {
-                const modName = item.querySelector('h3').textContent.toLowerCase();
-                if (modName.includes(searchValue)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-    </script>
 
 </body>
 </html>

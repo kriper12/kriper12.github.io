@@ -98,15 +98,10 @@
             margin-bottom: 10px;
         }
 
-        .box .content a {
-            color: #ff6f00;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        .box .content a:hover {
-            color: #ff4500; /* Brighter orange on hover */
+        /* Remove blue color and underline from links */
+        a {
+            text-decoration: none; /* Remove underline */
+            color: inherit; /* Inherit the color from the parent element (e.g., the orange text color) */
         }
 
         .show-more-btn {

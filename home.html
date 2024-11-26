@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
     <title>Kriper's FNF Mod Library</title>
 
     <!-- Link to Google Font for a cooler header font -->
@@ -279,13 +283,23 @@
         </div>
     </a>
 
- <script>
+<script>
+    // Store the original order of items
+    var modItems = Array.from(document.querySelectorAll('.mod-item'));
+    var contentContainer = document.getElementById('contentContainer'); // Get the content container
+
+    // Function to reset to original order
+    function resetOrder() {
+        modItems.forEach(function(item) {
+            contentContainer.appendChild(item); // Re-append in the original order
+        });
+    }
+
+    // Search input event listener
     document.getElementById('searchBar').addEventListener('input', function() {
         var input = this.value.toLowerCase(); // Get the search input
-        var modItems = Array.from(document.querySelectorAll('.mod-item')); // Get all mod items and convert to an array
-        var contentContainer = document.getElementById('contentContainer'); // Get the content container
-        
-        // First, hide all items
+
+        // Hide or show items based on search input
         modItems.forEach(function(item) {
             var modName = item.getAttribute('data-mod-name').toLowerCase(); // Get the mod name (case-insensitive)
             if (modName.includes(input)) {
@@ -295,25 +309,28 @@
             }
         });
 
-        // Now, reorder items by putting the visible ones at the top
-        modItems.sort(function(a, b) {
-            // Compare if each item is hidden or not (visible first)
-            if (a.classList.contains('hidden') && !b.classList.contains('hidden')) {
-                return 1; // Move hidden items down
-            } else if (!a.classList.contains('hidden') && b.classList.contains('hidden')) {
-                return -1; // Move visible items up
-            } else {
-                return 0; // No change in order if both are either visible or hidden
-            }
-        });
+        // If search bar is empty, reset order and show all items
+        if (input === '') {
+            resetOrder(); // Reset the order to the original
+        } else {
+            // Reorder items by putting the visible ones at the top
+            modItems.sort(function(a, b) {
+                // Compare if each item is hidden or not (visible first)
+                if (a.classList.contains('hidden') && !b.classList.contains('hidden')) {
+                    return 1; // Move hidden items down
+                } else if (!a.classList.contains('hidden') && b.classList.contains('hidden')) {
+                    return -1; // Move visible items up
+                } else {
+                    return 0; // No change in order if both are either visible or hidden
+                }
+            });
 
-        // Re-attach sorted items to the content container
-        modItems.forEach(function(item) {
-            contentContainer.appendChild(item); // Re-append in new order
-        });
+            // Re-attach sorted items to the content container
+            modItems.forEach(function(item) {
+                contentContainer.appendChild(item); // Re-append in new order
+            });
+        }
     });
 </script>
-
-
 </body>
 </html>

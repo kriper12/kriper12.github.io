@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kriper's FNF Mod Library</title>
+
+    <!-- Link to Google Font for a cooler header font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <!-- Link to FontAwesome Kit -->
+    <script src="https://kit.fontawesome.com/c3a1e1e4e9.js" crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #f4f4f4;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            color: #ffa500;
+            font-size: 3.5em;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Menu Style */
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #ffa500;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .menu a:hover {
+            background-color: #ff6f00;
+            color: #fff;
+        }
+
+        /* Iframe container */
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            height: 600px;
+            margin-top: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Full-screen button */
+        .fullscreen-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff6f00;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .fullscreen-btn:hover {
+            background-color: #ffa500;
+        }
+
+        /* Discord Icon Button */
+        .discord-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #5865F2;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            font-size: 1.5em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s ease;
+        }
+
+        /* Discord hover effect */
+        .discord-btn:hover {
+            background-color: #ffa500;
+            transform: rotate(360deg);
+        }
+
+        .discord-btn i {
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Kriper's FNF Mod Library</h1>
+    </header>
+
+    <!-- Menu -->
+    <div class="menu">
+        <a href="/">Home</a>
+        <a href="/home">Show More Mods</a>
+    </div>
+
+    <!-- Iframe Player Container -->
+    <div class="iframe-container">
+        <iframe src="https://your-iframe-player-url.com" title="FNF Mod Player"></iframe>
+
+        <!-- Fullscreen Button -->
+        <button class="fullscreen-btn" onclick="toggleFullScreen()">Fullscreen</button>
+    </div>
+
+    <!-- Discord Icon Button -->
+    <a href="https://discord.com/" target="_blank">
+        <div class="discord-btn">
+            <i class="fa-brands fa-discord"></i>
+        </div>
+    </a>
+
+    <script>
+        // Fullscreen toggle function
+        function toggleFullScreen() {
+            let iframe = document.querySelector('iframe');
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -95,7 +95,7 @@
 
         .box img {
             width: 200px;
-            height: 200px;
+            height: 300px;
             object-fit: cover;
             border-bottom: 2px solid #ff6f00; /* Orange border below image */
         }
@@ -152,6 +152,30 @@
         .hidden {
             display: none;
         }
+
+        /* Discord Icon Button */
+        .discord-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #5865F2;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 2em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        /* Spin effect on hover */
+        .discord-btn:hover {
+            transform: rotate(360deg);
+        }
+
+        .discord-btn i {
+            pointer-events: none; /* Prevent icon from being clickable */
+        }
     </style>
 </head>
 <body>
@@ -172,7 +196,7 @@
 
         <!-- Mod Box 1 -->
         <a href="#" class="box mod-item">
-            <img src="https://kbh.games/img/sdvere3.jpg" alt="FNF Mod Image" width="200" height="200">
+            <img src="https://kbh.games/img/sdvere3.jpg" alt="FNF Mod Image" width="200" height="300">
             <div class="content">
                 <h3>Friday Night Funkin'</h3>
                 <p>Join the fun rhythm battle with funky beats and challenges!</p>
@@ -181,7 +205,7 @@
 
         <!-- Mod Box 2 -->
         <a href="#" class="box mod-item">
-            <img src="https://placekitten.com/200/200" alt="FNF Mod Image" width="200" height="200">
+            <img src="https://placekitten.com/200/300" alt="FNF Mod Image" width="200" height="300">
             <div class="content">
                 <h3>Mod Name 2</h3>
                 <p>Explore new characters and stages in this epic mod!</p>
@@ -190,7 +214,7 @@
 
         <!-- Mod Box 3 -->
         <a href="#" class="box mod-item">
-            <img src="https://placekitten.com/200/200" alt="FNF Mod Image" width="200" height="200">
+            <img src="https://placekitten.com/200/300" alt="FNF Mod Image" width="200" height="300">
             <div class="content">
                 <h3>Mod Name 3</h3>
                 <p>Get ready for intense rap battles in this challenging mod!</p>
@@ -199,7 +223,7 @@
 
         <!-- Mod Box 4 -->
         <a href="#" class="box mod-item">
-            <img src="https://placekitten.com/200/200" alt="FNF Mod Image" width="200" height="200">
+            <img src="https://placekitten.com/200/300" alt="FNF Mod Image" width="200" height="300">
             <div class="content">
                 <h3>Mod Name 4</h3>
                 <p>Prepare for a fresh adventure with this mod!</p>
@@ -208,7 +232,7 @@
 
         <!-- Mod Box 5 -->
         <a href="#" class="box mod-item">
-            <img src="https://placekitten.com/200/200" alt="FNF Mod Image" width="200" height="200">
+            <img src="https://placekitten.com/200/300" alt="FNF Mod Image" width="200" height="300">
             <div class="content">
                 <h3>Mod Name 5</h3>
                 <p>Challenge yourself with new music tracks and characters!</p>
@@ -217,7 +241,7 @@
 
         <!-- Mod Box 6 -->
         <a href="#" class="box mod-item">
-            <img src="https://placekitten.com/200/200" alt="FNF Mod Image" width="200" height="200">
+            <img src="https://placekitten.com/200/300" alt="FNF Mod Image" width="200" height="300">
             <div class="content">
                 <h3>Mod Name 6</h3>
                 <p>Enjoy epic battles and great tunes with this mod!</p>
@@ -230,6 +254,17 @@
     <a href="/home">
         <button class="show-more-btn">Show More Mods</button>
     </a>
+
+    <!-- Discord Icon Button (in the top-right corner) -->
+    <a href="https://discord.com/" target="_blank">
+        <div class="discord-btn">
+            <i class="fab fa-discord"></i> <!-- You can use FontAwesome here for the Discord icon -->
+            <!-- You can replace it with an <img> tag if you want an image icon instead -->
+        </div>
+    </a>
+
+    <!-- Link to FontAwesome (optional, if using FontAwesome for the icon) -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 </body>
 </html>

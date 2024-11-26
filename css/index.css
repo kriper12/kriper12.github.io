@@ -222,5 +222,5 @@ iframe {
 }
 
 .fullscreen-btn:hover {
-    background-color: RGBA(255, 111, 0, 1);
+    background-color: RGBA(255, 111, 0, 0.5);
 }

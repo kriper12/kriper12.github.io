@@ -46,6 +46,28 @@
             color: #ff6f00; /* Darker orange on hover */
         }
 
+        /* Menu Style */
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #ffa500;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .menu a:hover {
+            background-color: #ff6f00;
+            color: #fff;
+        }
+
         /* Main container for the content */
         .content-container {
             display: grid;
@@ -72,8 +94,8 @@
         }
 
         .box img {
-            width: 400px;
-            height: 300px;
+            width: 200px;
+            height: 200px;
             object-fit: cover;
             border-bottom: 2px solid #ff6f00; /* Orange border below image */
         }
@@ -139,12 +161,18 @@
         <h1><a href="/">Kriper's FNF Mod Library</a></h1>
     </header>
 
+    <!-- Menu (Home & Show More Mods) -->
+    <div class="menu">
+        <a href="/">Home</a>
+        <a href="/home">Show More Mods</a>
+    </div>
+
     <!-- Main Content Container -->
     <div class="content-container">
 
         <!-- Mod Box 1 -->
         <a href="#" class="box mod-item">
-            <img src="https://kbh.games/img/sdvere3.jpg" alt="FNF Mod Image" width="400" height="300">
+            <img src="https://kbh.games/img/sdvere3.jpg" alt="FNF Mod Image" width="200" height="200">
             <div class="content">
                 <h3>Friday Night Funkin'</h3>
                 <p>Join the fun rhythm battle with funky beats and challenges!</p>
@@ -153,7 +181,7 @@
 
         <!-- Mod Box 2 -->
         <a href="#" class="box mod-item">
-            <img src="https://placekitten.com/400/300" alt="FNF Mod Image" width="400" height="300">
+            <img src="https://placekitten.com/200/200" alt="FNF Mod Image" width="200" height="200">
             <div class="content">
                 <h3>Mod Name 2</h3>
                 <p>Explore new characters and stages in this epic mod!</p>
@@ -162,7 +190,7 @@
 
         <!-- Mod Box 3 -->
         <a href="#" class="box mod-item">
-            <img src="https://placekitten.com/400/300" alt="FNF Mod Image" width="400" height="300">
+            <img src="https://placekitten.com/200/200" alt="FNF Mod Image" width="200" height="200">
             <div class="content">
                 <h3>Mod Name 3</h3>
                 <p>Get ready for intense rap battles in this challenging mod!</p>
@@ -171,7 +199,7 @@
 
         <!-- Mod Box 4 -->
         <a href="#" class="box mod-item">
-            <img src="https://placekitten.com/400/300" alt="FNF Mod Image" width="400" height="300">
+            <img src="https://placekitten.com/200/200" alt="FNF Mod Image" width="200" height="200">
             <div class="content">
                 <h3>Mod Name 4</h3>
                 <p>Prepare for a fresh adventure with this mod!</p>
@@ -180,7 +208,7 @@
 
         <!-- Mod Box 5 -->
         <a href="#" class="box mod-item">
-            <img src="https://placekitten.com/400/300" alt="FNF Mod Image" width="400" height="300">
+            <img src="https://placekitten.com/200/200" alt="FNF Mod Image" width="200" height="200">
             <div class="content">
                 <h3>Mod Name 5</h3>
                 <p>Challenge yourself with new music tracks and characters!</p>
@@ -189,7 +217,7 @@
 
         <!-- Mod Box 6 -->
         <a href="#" class="box mod-item">
-            <img src="https://placekitten.com/400/300" alt="FNF Mod Image" width="400" height="300">
+            <img src="https://placekitten.com/200/200" alt="FNF Mod Image" width="200" height="200">
             <div class="content">
                 <h3>Mod Name 6</h3>
                 <p>Enjoy epic battles and great tunes with this mod!</p>

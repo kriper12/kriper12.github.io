@@ -72,8 +72,9 @@
         }
 
         .box img {
-            width: 100%;
-            height: auto;
+            width: 400px;
+            height: 300px;
+            object-fit: cover;
             border-bottom: 2px solid #ff6f00; /* Orange border below image */
         }
 
@@ -138,11 +139,12 @@
         <h1><a href="/">Kriper's FNF Mod Library</a></h1>
     </header>
 
-    <!-- Content Container -->
-    <div class="content-container" id="mod-list">
+    <!-- Main Content Container -->
+    <div class="content-container">
+
         <!-- Mod Box 1 -->
         <a href="#" class="box mod-item">
-            <img src="https://kbh.games/img/sdvere3.jpg" alt="FNF Mod Image">
+            <img src="https://kbh.games/img/sdvere3.jpg" alt="FNF Mod Image" width="400" height="300">
             <div class="content">
                 <h3>Friday Night Funkin'</h3>
                 <p>Join the fun rhythm battle with funky beats and challenges!</p>
@@ -151,7 +153,7 @@
 
         <!-- Mod Box 2 -->
         <a href="#" class="box mod-item">
-            <img src="https://placekitten.com/400/300" alt="FNF Mod Image">
+            <img src="https://placekitten.com/400/300" alt="FNF Mod Image" width="400" height="300">
             <div class="content">
                 <h3>Mod Name 2</h3>
                 <p>Explore new characters and stages in this epic mod!</p>
@@ -160,19 +162,16 @@
 
         <!-- Mod Box 3 -->
         <a href="#" class="box mod-item">
-            <img src="https://placekitten.com/400/300" alt="FNF Mod Image">
+            <img src="https://placekitten.com/400/300" alt="FNF Mod Image" width="400" height="300">
             <div class="content">
                 <h3>Mod Name 3</h3>
                 <p>Get ready for intense rap battles in this challenging mod!</p>
             </div>
         </a>
-    </div>
 
-    <!-- Hidden additional mod boxes (initially not shown) -->
-    <div class="content-container more-mods" id="more-mods">
         <!-- Mod Box 4 -->
         <a href="#" class="box mod-item">
-            <img src="https://placekitten.com/400/300" alt="FNF Mod Image">
+            <img src="https://placekitten.com/400/300" alt="FNF Mod Image" width="400" height="300">
             <div class="content">
                 <h3>Mod Name 4</h3>
                 <p>Prepare for a fresh adventure with this mod!</p>
@@ -181,7 +180,7 @@
 
         <!-- Mod Box 5 -->
         <a href="#" class="box mod-item">
-            <img src="https://placekitten.com/400/300" alt="FNF Mod Image">
+            <img src="https://placekitten.com/400/300" alt="FNF Mod Image" width="400" height="300">
             <div class="content">
                 <h3>Mod Name 5</h3>
                 <p>Challenge yourself with new music tracks and characters!</p>
@@ -190,15 +189,16 @@
 
         <!-- Mod Box 6 -->
         <a href="#" class="box mod-item">
-            <img src="https://placekitten.com/400/300" alt="FNF Mod Image">
+            <img src="https://placekitten.com/400/300" alt="FNF Mod Image" width="400" height="300">
             <div class="content">
                 <h3>Mod Name 6</h3>
                 <p>Enjoy epic battles and great tunes with this mod!</p>
             </div>
         </a>
+
     </div>
 
-    <!-- "Show More Mods" Button (now redirects to /home) -->
+    <!-- "Show More Mods" Button -->
     <a href="/home">
         <button class="show-more-btn">Show More Mods</button>
     </a>

@@ -284,13 +284,17 @@
     </a>
 
 <script>
-    // Store the original order of items
+    // Store the original order of items in an array
     var modItems = Array.from(document.querySelectorAll('.mod-item'));
     var contentContainer = document.getElementById('contentContainer'); // Get the content container
 
-    // Function to reset to original order
+    // Store the original order (the order in the DOM initially)
+    var originalOrder = [...modItems]; // Clone the array to store the original order
+
+    // Function to reset to the original order
     function resetOrder() {
-        modItems.forEach(function(item) {
+        // Re-attach items in the original order
+        originalOrder.forEach(function(item) {
             contentContainer.appendChild(item); // Re-append in the original order
         });
     }
@@ -309,7 +313,7 @@
             }
         });
 
-        // If search bar is empty, reset order and show all items
+        // If the search bar is empty, reset order and show all items
         if (input === '') {
             resetOrder(); // Reset the order to the original
         } else {
@@ -332,5 +336,6 @@
         }
     });
 </script>
+
 </body>
 </html>

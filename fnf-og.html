@@ -33,8 +33,8 @@
         <button class="fullscreen-btn" onclick="toggleFullScreen()">Fullscreen</button>
     </div>
 
-    <!-- Random Mod Section -->
-    <div id="random-mod" class="random-mod"></div>
+    <!-- Random Mods Section -->
+    <div id="random-mods" class="random-mods"></div>
 
     <!-- Discord Icon Button -->
     <a href="https://discord.com/" target="_blank">
@@ -61,42 +61,68 @@
         // Randomize Mods
         const mods = [
             {
-                img: "https://picsum.photos/200/300",
+                img: "https://placekitten.com/200/300",
                 name: "Mod Name 1",
                 description: "Experience the thrill with this amazing mod!",
                 link: "#"
             },
             {
-                img: "https://picsum.photos/200/300",
+                img: "https://placekitten.com/250/300",
                 name: "Mod Name 2",
                 description: "Explore new characters and stages in this epic mod!",
                 link: "#"
             },
             {
-                img: "https://picsum.photos/200/300",
+                img: "https://placekitten.com/300/300",
                 name: "Mod Name 3",
                 description: "Dive into this challenging yet fun mod!",
+                link: "#"
+            },
+            {
+                img: "https://placekitten.com/350/300",
+                name: "Mod Name 4",
+                description: "Get ready for the ultimate experience with this mod!",
+                link: "#"
+            },
+            {
+                img: "https://placekitten.com/400/300",
+                name: "Mod Name 5",
+                description: "Join the fun and unlock new gameplay elements in this mod!",
                 link: "#"
             }
         ];
 
-        function displayRandomMod() {
-            const randomMod = mods[Math.floor(Math.random() * mods.length)];
-            const modContainer = document.getElementById("random-mod");
+        function displayRandomMods() {
+            // Pick two random mods
+            let randomMods = [];
+            while (randomMods.length < 2) {
+                let randomMod = mods[Math.floor(Math.random() * mods.length)];
+                if (!randomMods.includes(randomMod)) {
+                    randomMods.push(randomMod);
+                }
+            }
 
-            modContainer.innerHTML = `
-                <a href="${randomMod.link}" class="box mod-item">
-                    <img src="${randomMod.img}" alt="${randomMod.name}">
-                    <div class="content">
-                        <h3>${randomMod.name}</h3>
-                        <p>${randomMod.description}</p>
-                    </div>
-                </a>
-            `;
+            const modsContainer = document.getElementById("random-mods");
+
+            // Clear previous content
+            modsContainer.innerHTML = '';
+
+            // Add the random mods to the container
+            randomMods.forEach(mod => {
+                modsContainer.innerHTML += `
+                    <a href="${mod.link}" class="box mod-item">
+                        <img src="${mod.img}" alt="${mod.name}">
+                        <div class="content">
+                            <h3>${mod.name}</h3>
+                            <p>${mod.description}</p>
+                        </div>
+                    </a>
+                `;
+            });
         }
 
-        // Display a random mod on page load
-        displayRandomMod();
+        // Display two random mods on page load
+        displayRandomMods();
     </script>
 
 </body>

@@ -8,9 +8,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Page Not Found</title>
-    <link rel="stylesheet" href="../css/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/c3a1e1e4e9.js" crossorigin="anonymous"></script>
+
+    <style>
+        /* General Reset */
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Press Start 2P', sans-serif; /* Optional */
+        }
+
+        /* Center the content */
+        .content-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Take full viewport height */
+            text-align: center; /* Optional */
+        }
+
+        /* Box Styling */
+        .box {
+            width: 80%; /* You can adjust this width */
+            max-width: 600px; /* Optional: Limit the maximum width */
+            background-color: lightgray;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Image Inside the Box */
+        .box img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px 8px 0 0;
+        }
+
+        /* Content Inside the Box */
+        .content {
+            padding: 20px;
+        }
+
+        /* Discord Icon Button */
+        .discord-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #7289da;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .discord-btn i {
+            color: white;
+            font-size: 24px;
+        }
+    </style>
+
 </head>
 <body>
 
@@ -20,16 +75,16 @@
     </header>
 
     <!-- Menu (Home & Contact) -->
-    <div class="menu">
-        <a href="../home">Go to Home</a>
-    </div>
+    <a href="../home">
+        <button class="show-more-btn">Go to Home</button>
+    </a>
 
     <!-- Main Content Container -->
     <div class="content-container">
 
         <!-- Error Box 1 -->
         <div class="box mod-item">
-            <img src="https://www.pockettactics.com/wp-content/sites/pockettactics/2023/08/Friday-Night-Funkin.jpg" alt="404 Error Image">
+            <img src="https://www.pockettactics.com/wp-content/sites/pockettactics/2023/08/Friday-Night-Funkin.jpghttps://www.pockettactics.com/wp-content/sites/pockettactics/2023/08/Friday-Night-Funkin.jpg" alt="404 Error Image">
             <div class="content">
                 <h3>Oops! Page Not Found</h3>
                 <p>The page you're looking for doesn't exist. Please check the URL or return to the home page.</p>
@@ -37,11 +92,6 @@
         </div>
 
     </div>
-
-    <!-- "Go to Home" Button -->
-    <a href="../home">
-        <button class="show-more-btn">Go to Home</button>
-    </a>
 
     <!-- Discord Icon Button -->
     <a href="https://discord.com/" target="_blank">

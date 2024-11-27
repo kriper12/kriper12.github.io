@@ -10,8 +10,8 @@
 
     <!-- Link to FontAwesome Kit -->
     <script src="https://kit.fontawesome.com/c3a1e1e4e9.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="../css/index.css">
-  </head>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
 <body>
 
     <!-- Header -->
@@ -32,6 +32,9 @@
         <!-- Fullscreen Button -->
         <button class="fullscreen-btn" onclick="toggleFullScreen()">Fullscreen</button>
     </div>
+
+    <!-- Random Mod Section -->
+    <div id="random-mod" class="random-mod"></div>
 
     <!-- Discord Icon Button -->
     <a href="https://discord.com/" target="_blank">
@@ -54,6 +57,46 @@
                 iframe.msRequestFullscreen();
             }
         }
+
+        // Randomize Mods
+        const mods = [
+            {
+                img: "https://placekitten.com/200/300",
+                name: "Mod Name 1",
+                description: "Experience the thrill with this amazing mod!",
+                link: "#"
+            },
+            {
+                img: "https://placekitten.com/250/300",
+                name: "Mod Name 2",
+                description: "Explore new characters and stages in this epic mod!",
+                link: "#"
+            },
+            {
+                img: "https://placekitten.com/300/300",
+                name: "Mod Name 3",
+                description: "Dive into this challenging yet fun mod!",
+                link: "#"
+            }
+        ];
+
+        function displayRandomMod() {
+            const randomMod = mods[Math.floor(Math.random() * mods.length)];
+            const modContainer = document.getElementById("random-mod");
+
+            modContainer.innerHTML = `
+                <a href="${randomMod.link}" class="box mod-item">
+                    <img src="${randomMod.img}" alt="${randomMod.name}">
+                    <div class="content">
+                        <h3>${randomMod.name}</h3>
+                        <p>${randomMod.description}</p>
+                    </div>
+                </a>
+            `;
+        }
+
+        // Display a random mod on page load
+        displayRandomMod();
     </script>
 
 </body>
